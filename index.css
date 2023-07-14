@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  font-family: Convergence;
+}
+body {
+  font-size: 1.2rem;
+}
+a {
+  text-decoration: none;
+  color: #2d365a;
+}
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 
+      SECTION 1
+ */
+
+section:first-of-type {
+  gap: 5vh;
+  background: url('images/forest-bg.png');
+  background-color: #bfffea;
+  background-blend-mode: multiply;
+  background-size: cover;
+  animation: bg 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;    
+}
+.header {
+  color: #aae1ff;
+  text-align: center;
+  text-shadow: 0px 5px #2d365a;
+  margin-bottom: 1.5rem;
+  animation: slide 1s;
+}
+.header h2 {
+  color: #ff6a6a;
+}
+.register-container {
+  height: 2rem;
+}
+.register {
+  background: none;
+  border: 0.2rem solid #2d365a;
+  color: #2d365a;
+  font-weight: 700;
+  border-radius: 999rem;
+  padding: 1rem;
+  animation: beat 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* 
+      SECTION 2
+ */
+
+section:nth-of-type(2) {
+  background: url('images/corrupt-bg.png');
+  background-color: #d5bfff;
+  background-blend-mode: multiply;
+  background-size: cover;
+  animation: bg-reverse 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.form{
+  --bg-clr: #2d365a;
+  --border-clr: #b5aaff;
+  --focus-clr: blueviolet; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0px 0px 10px black;
+  padding: 2rem;  
+  color: var(--border-clr);
+  background-color: var(--bg-clr);
+  width: 100%;
+  max-width: 330px;
+  border-radius: 0 50px 0 50px;
+}
+
+.input-div {
+  position: relative;
+  width: 80%;
+  height: 2rem;
+}
+input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #b06aff;
+  background: none;
+  border: 0.15rem solid var(--border-clr);
+  outline: none;
+  border-radius: 0.3rem;
+  font-family: Convergence;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+label {
+  position: absolute;
+  color: var(--border-clr);
+  font-size: 1rem;
+  z-index: 1;
+  padding: 0 2px;
+  left: 0.3rem;
+  top: 50%;
+  background-color: var(--bg-clr);
+  transform: translateY(-50%);
+  transition: top 0.3s, font-size 0.5s, left 0.5s;
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.02rem;
+  font-size: 0.75rem;
+  left: 0.4rem;
+  color: var(--focus-clr);
+}
+.form__input:focus,
+.form__input:not(:placeholder-shown).form__input:not(:focus) {
+  border-color: var(--focus-clr);
+}
+
+small {
+  display: inline;
+  width: 90%;  
+  text-align: center;
+}
+button {
+  background: none;
+  font-family: inherit;
+  width: 50%;
+  height: 1.5rem;
+  color: var(--border-clr);
+  border: 0.15rem solid var(--border-clr);
+  border-radius: 0.3rem;
+  transition: width 0.5s, background-color 0.5s, color 0.5s;
+}
+button:hover{
+  width: 60%;
+  background-color: var(--border-clr);
+  color: var(--bg-clr);
+}
+
+/* 
+      SECTION 3
+ */
+
+section:nth-of-type(3) {
+  background: url('images/hallow-bg.png');
+  background-color: lightblue;
+  background-blend-mode: multiply;
+  background-size: cover;
+  animation: bg 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.icons {
+  overflow: hidden;
+  display: flex;
+  width: 200px;
+  height: 5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+picture {
+  display: inline;
+  aspect-ratio: 1/1;
+}
+img {
+  width: 3rem;
+}
+
+
+/* 
+-------MISCELLANEOUS--------
+ */
+@keyframes bg {
+  0% {
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+  100% {
+    background-position: left center;
+  }
+}
+@keyframes bg-reverse{
+  0% {
+    background-position: right center;
+  }
+  50% {
+    background-position: left center;
+  }
+  100% {
+    background-position: right center;
+  }
+}
+
+
+
+
+
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%) scale(1);
+  }
+}
+@keyframes beat {
+  0% {
+    font-size: 1rem;
+  }
+  50% {
+    font-size: 1.2rem;
+  }
+  100% {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+/* @media(min-width: 1000px){
+  section:first-of-type {
+    background: url('images/jungle-bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+ */
