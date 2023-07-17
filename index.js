@@ -1,3 +1,5 @@
+let box = document.querySelector(".waiting");
+
 function submit() {
   var params = {
     name : document.getElementById("name").value,
@@ -10,8 +12,9 @@ function submit() {
   return false
 }
 else {
-  alert("Please wait...");
+  box.style.visibility = "visible";
   emailjs.send("service_6un9e7w", "template_jq2lxcr", params).then(function (res) {
-    alert("Success! Now please wait for the admins to confirm your registration.");
+  alert("Success! Now please wait for the admins to confirm your registration.");
+  box.innerHTML=("<h1>SUCCESS!</h1><br><button onclick=window.location.href='index.html'>CLOSE</button>");
   })
 }}
