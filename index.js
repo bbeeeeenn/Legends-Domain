@@ -10,6 +10,7 @@ function submit() {
   return false
 }
 else {
+  alert("Please wait...");
   emailjs.send("service_6un9e7w", "template_jq2lxcr", params).then(function (res) {
     alert("Success! Now please wait for the admins to confirm your registration.");
   })
