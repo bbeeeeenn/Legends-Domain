@@ -30,6 +30,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* 
@@ -44,17 +45,32 @@ section:first-of-type {
   background-size: cover;
   animation: bg 30s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;    
+  animation-timing-function: linear;
 }
 .header {
+  position: relative;
   color: #aae1ff;
   text-align: center;
   text-shadow: 0px 5px #2d365a;
   margin-bottom: 1.5rem;
+  isolation: isolate;
   animation: slide 1s;
 }
 .header h2 {
   color: #ff6a6a;
+}
+.header .flag {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  transform: translateY(-50%);
+  aspect-ratio: 1/1;
+  height: 10rem;
+  background-color: white;
+  background: url('images/phflag.png');
+  background-size: contain;
+  z-index: -1;
 }
 .register-container {
   height: 2rem;
@@ -89,6 +105,8 @@ section:nth-of-type(2) {
   --bg-clr: #2d365a;
   --border-clr: #b5aaff;
   --focus-clr: blueviolet; 
+  
+  position: relative;
   
   display: flex;
   flex-direction: column;
@@ -214,7 +232,24 @@ button:hover{
 
 .waiting button {
   border: 2px solid #b5aaff;
-  color: #b5aaff;
+}
+
+.bunny {
+  position: absolute;
+  bottom: 100%;
+  right: 55%;
+  aspect-ratio: 1/1;
+  background: url("images/bunny.gif") center/cover no-repeat;
+  width: 15%;
+}
+.eoc {
+  position: absolute;
+  bottom: 100%;
+  left: 55%;
+  aspect-ratio: 1/1;
+  background: url("images/eoc.gif") center/contain no-repeat;
+  transform: rotate(-0.05turn);
+  width: 35%;
 }
 /* 
       SECTION 3
@@ -298,15 +333,3 @@ img {
     font-size: 1rem;
   }
 }
-
-
-
-
-/* @media(min-width: 1000px){
-  section:first-of-type {
-    background: url('images/jungle-bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-}
- */
