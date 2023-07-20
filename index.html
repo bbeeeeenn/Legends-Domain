@@ -17,21 +17,26 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"> </script> 
   <script type="text/javascript"> (function(){ emailjs.init("ickdgnADxuxDV0ELh"); })(); </script>
 </head>
-
 <body>
-  <section>
+  
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<!---------------- HEADER -------------------->
+  
+  <section class="section section-1">
     <div class="header">
       <div class="flag"></div>
       <h1>Legends' Domain</h1>
       <h2>Terraria SMP</h2>
     </div>
     <div class="register-container">
-      <a href="#reg">
-        <div class="register">Register</div>
-      </a>
+       <div onclick="window.location.href='#reg'" class="register">Register</div>
     </div>
   </section>
-  <section id="reg">
+  
+<!-- -- -- -- --  -- -- -- -- -- -- -- -- - -->
+<!-------------- REGISTER FORM --------------->
+  
+  <section id="reg" class="section section-2">
     <div class="form">
       <h1 style="text-align:center;">Request Registration</h1>
       <div class="input-div">
@@ -67,23 +72,62 @@
       <p>Please Wait..</p>
     </div>
   </section>
-  <section>
-    <div class="admin"><img class="profile"src=""></div>
-    <div class="admin"><img class="profile"src=""></div>
-    <h2>Join Us:</h2>
-    <div class="icons">
-      <a href="https://discord.gg/RP5v77Sz6W">
-        <picture>
-          <img src="images/discord-icon.png" alt="Discord">
-        </picture>
-      </a>
-      <a href="https://m.me/j/AbaSVUwdrFaWOawe/">
-        <picture>
-          <img src="images/messenger-icon.png" alt="Messenger">
-        </picture>
-      </a>
+  
+<!-- -- -- -- -- -- -- -- -- -  -- -- -- -- -->
+<!---------ADMINS AND OTHER PLATFORM.--------->
+  
+  <section class="section section-3">
+    <div>
+      
+      <h1>Admins</h1>
+      <div class="admins">
+        
+        <div class="row">
+          <div class="person ben">
+            <img src="images/admins/ben.jpeg"></img>
+            <p onclick="window.location.href='https://www.facebook.com/Beeeeen'">Ben</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="person marco">
+            <img src="images/admins/marco.jpg"></img>
+            <p onclick="window.location.href='https://www.facebook.com/MarcoPlayzz.M'">Marco</p>
+          </div>
+          <div class="person denver">
+            <img src="images/admins/denver.jpg"></img>
+            <p onclick="window.location.href='https://www.facebook.com/profile.php?id=100078941132356'">Denver</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="person ian">
+            <img src="images/admins/ian.png"></img>
+            <p onclick="window.location.href='https://www.facebook.com/profile.php?id=100069651235819'">Kyle</p>
+          </div>
+          <div class="person mary">
+            <img src="images/admins/marky.jpg"></img>
+            <p onclick="window.location.href='https://www.facebook.com/profile.php?id=100088210722011'">Mary</p>
+          </div>
+          <div class="person jade">
+            <img src="images/admins/jade.jpg"></img>
+            <p onclick="window.location.href='https://www.facebook.com/profile.php?id=100089977737722'">Zenith Su</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <h1>Join Us:</h1>
+      <div class="join">
+        <div onclick="window.location.href='https://m.me/j/AbaSVUwdrFaWOawe/'" class="icon-box messenger"><img class="icon" src="images/messenger.png"></div>
+        <div onclick="window.location.href='https://discord.gg/XvMqRJ8x'" class="icon-box discord"><img class="icon" src="images/discord.png"></div>
+      </div>
+    
     </div>
   </section>
+  
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  
   <script src="index.js"></script>
 </body>
 </html>
