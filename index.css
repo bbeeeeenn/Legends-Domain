@@ -308,7 +308,7 @@ button:hover{
 .section-3 h1:first-of-type::after {
   content: '(click on names to visit profile)';
   display: block;
-  font-size: 1px;
+  font-size: 10px;
 }
 
 .admins {
