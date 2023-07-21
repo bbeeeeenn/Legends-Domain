@@ -9,6 +9,9 @@
   -ms-user-select: none;
   user-select: none;
 }
+:root {
+  --main-scale:1.2;
+}
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -54,7 +57,9 @@ a {
   text-shadow: 0px 5px #2d365a;
   margin-bottom: 1.5rem;
   isolation: isolate;
-  animation: slide 1s;
+  animation: slide 1s forwards;
+  
+  
 }
 .header h2 {
   color: #ff6a6a;
@@ -293,6 +298,7 @@ button:hover{
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
+  row-gap: 1rem;
   height: 100%;
   overflow: scroll;
 }
@@ -317,7 +323,8 @@ button:hover{
 .admins {
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-around;
+  justify-content: center;
+  row-gap: 1rem;
   align-items: center;
   flex-grow: 1;
   
@@ -497,11 +504,11 @@ button:hover{
 @keyframes slide {
   0% {
     opacity: 0;
-    transform: translateY(-100%) scale(1.5);
+    transform: translateY(-100%) scale(calc(var(--main-scale) * 1.5));
   }
   100% {
     opacity: 1;
-    transform: translateY(0%) scale(1);
+    transform: translateY(0%) scale(var(--main-scale));
   }
 }
 @keyframes beat {
@@ -521,5 +528,14 @@ button:hover{
   }
   100% {
     transform: rotate(1turn);
+  }
+}
+
+
+/* -------------MEDIA QUERIES--------------- */
+
+@media(min-width:800px){
+  :root {
+    --main-scale: 1.7;
   }
 }
