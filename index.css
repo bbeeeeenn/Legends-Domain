@@ -414,8 +414,8 @@ button:hover {
   content: '';
   position: absolute;
   z-index: -1;
-  height: calc(100% + 10px);
-  width: calc(100% + 10px);
+  height: calc(100% + 11px);
+  width: calc(100% + 11px);
   border-radius: 50%;
   --wheel-clr: rgba(159, 237, 237, 1.0);
   background-image: conic-gradient(rgba(0, 0, 0, 0) 0deg 60deg,
@@ -461,7 +461,7 @@ button:hover {
   transform: translateY(0);
   filter: blur(0px);
   opacity: 1;
-  transition: transform 0.001s, opacity 0.2s, filter 0.3s;
+  transition: transform 0.001s, opacity 0.2s, filter 0.3s;     
 }
 
 .person p:hover::after {
