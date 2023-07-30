@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap'); */
 
 * {
   margin: 0;
@@ -142,8 +142,7 @@ a {
   padding: 2rem;
   color: var(--border-clr);
   background-color: var(--bg-clr);
-  width: 100%;
-  max-width: 330px;
+  width: clamp(200px, 90%, 330px);
   border-radius: 0 50px 0 50px;
 }
 
@@ -415,8 +414,8 @@ button:hover {
   content: '';
   position: absolute;
   z-index: -1;
-  height: calc(100% + 13px);
-  width: calc(100% + 13px);
+  height: calc(100% + 10px);
+  width: calc(100% + 10px);
   border-radius: 50%;
   --wheel-clr: rgba(159, 237, 237, 1.0);
   background-image: conic-gradient(rgba(0, 0, 0, 0) 0deg 60deg,
@@ -440,6 +439,7 @@ button:hover {
 
 .person:hover::before {
   visibility: visible;
+  animation: rotate 1.5s infinite linear;
 }
 
 .person p {
