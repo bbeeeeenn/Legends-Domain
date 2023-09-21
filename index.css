@@ -110,6 +110,7 @@ a {
    font-weight: 700;
    border-radius: 999rem;
    padding: 1rem;
+   cursor: pointer;
    animation: beat 1s;
    animation-iteration-count: infinite;
    animation-timing-function: linear;
@@ -197,6 +198,7 @@ label {
    padding: 0 2px;
    left: 0.3rem;
    top: 50%;
+   pointer-events: none;
    background-color: var(--bg-clr);
    transform: translateY(-50%);
    transition: top 0.3s, font-size 0.5s, left 0.5s;
@@ -481,6 +483,7 @@ button:hover {
    transform: translateY(0);
    filter: blur(0px);
    opacity: 1;
+   cursor: pointer;
    transition: transform 0.001s, opacity 0.2s, filter 0.3s;
 }
 
