@@ -23,13 +23,7 @@ function submit() {
 			});
 	}
 }
-console.clear();
-const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-fetch('http://127.0.0.1:3118/v2/server/status?players=true&rules=true', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
 // const options = { method: "GET", headers: { accept: "application/json" } };
 // const ip = "54.39.158.188";
 // const port = "7878";
