@@ -1,38 +1,84 @@
-let box = document.querySelector(".waiting");
+const restUrl = "http://127.0.0.1:3118";
+const restUrlOnline = "http://192.168.1.8:3118";
 
-function submit() {
-	var params = {
-		name: document.getElementById("name").value,
-		password: document.getElementById("password").value,
-		facebook: document.getElementById("facebook").value,
-	};
+const activeStatus = document.querySelector(".activeStatus");
+function fetchData(call, endPoint, url = restUrlOnline) {
+	const options = { method: "GET", headers: { accept: "application/json" } };
+	fetch(`${url}${endPoint}`, options)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error("Newtwork response not ok");
+			}
+			return response.json();
+		})
+		.then((data) => {
+			call(data);
+		})
+		.catch((err) => {
+			console.error(err);
+			resetAll();
+		});
+}
 
-	if (name.value == "" || password.value == "" || facebook.value == "") {
-		alert("Please fill in all the required fields.");
-		return false;
-	} else {
-		box.style.visibility = "visible";
-		emailjs
-			.send("service_6un9e7w", "template_jq2lxcr", params)
-			.then(function (res) {
-				alert(
-					"Success! Now please wait for the admins to confirm your registration."
-				);
-				box.innerHTML =
-					"<h1>SUCCESS!</h1><br><button onclick=window.location.href='index.html'>CLOSE</button>";
-			});
+// -----------------------------------------------------------
+
+fetchData(setWorldInfo, "", "worldStatus.json");
+function setOnlineStatus(online) {
+	if (online) {
+		activeStatus.classList.remove("offline");
+		activeStatus.classList.add("online");
+		activeStatus.innerText = "Online";
+	} else if (!online) {
+		activeStatus.classList.remove("online");
+		activeStatus.classList.add("offline");
+		activeStatus.innerText = "Offline";
 	}
 }
 
-// const options = { method: "GET", headers: { accept: "application/json" } };
-// const ip = "54.39.158.188";
-// const port = "7878";
-// fetch(
-// 	`https://${ip}:${port}/v2/token/create?username=Zhen&password=tranq`,
-// 	options
-// )
-// 	.then((response) => response.json())
-// 	.then((response) => {
-// 		console.log(response);
-// 	})
-// 	.catch((err) => console.error(err));
+// -----------------------------------------------------------
+
+function setWorldInfo({ address, port, name, size, difficulty, evil }) {
+	const serverAddress = (document.getElementById("address").innerText =
+		address);
+	const serverPort = (document.getElementById("port").innerText = port);
+	const worldName = (document.getElementById("worldName").innerText = name);
+	const worldSize = (document.getElementById("worldSize").innerText = size);
+	const worldDiff = (document.getElementById("worldDiff").innerText =
+		difficulty);
+	const worldEvil = (document.getElementById("worldEvil").innerText = evil);
+}
+
+// -----------------------------------------------------------
+
+const playingBtn = document.getElementById("playing");
+playingBtn.addEventListener("click", () => {
+	const ul = document.getElementById("players");
+	ul.classList.toggle("hidden");
+});
+function setPlayers({ maxplayers, players }) {
+	const numberOfPlayers = document.getElementById("numberOfPlayers");
+	const playersOnline = document.getElementById("players");
+	numberOfPlayers.innerText = `${players.length}/${maxplayers}`;
+	playersOnline.innerHTML = players.map(({ nickname }) => {
+		return `<li onclick="fetchData(readPlayer, '/v3/players/read?player=${nickname}&token=ilyzhanelle')">${nickname}</li>`;
+	});
+	setOnlineStatus(true);
+}
+
+// -----------------------------------------------------------
+
+// function readPlayer(player) {
+// 	console.log(player);
+// }
+
+// -----------------------------------------------------------
+
+function setAll() {
+	fetchData(setPlayers, "/v2/server/status?players=true&token=ilyzhanelle");
+}
+function resetAll() {
+	setOnlineStatus(false);
+	// document.getElementById("players").innerHTML = "";
+	document.getElementById("numberOfPlayers").innerText = "#";
+}
+setAll();
