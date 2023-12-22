@@ -8,7 +8,7 @@ function fetchData(call, endPoint, url = restUrlOnlineIp) {
 	fetch(`${url}${endPoint}`, options)
 		.then((response) => {
 			if (!response.ok) {
-				throw new Error("Newtwork response not ok");
+				throw new Error("Network response not ok");
 			}
 			return response.json();
 		})
@@ -75,7 +75,11 @@ function setPlayers({ maxplayers, players }) {
 // -----------------------------------------------------------
 
 function setAll() {
-	fetchData(setPlayers, "/v2/server/status?players=true&token=ilyzhanelle");
+	fetchData(
+		setPlayers,
+		"/v2/server/status?players=true&token=ilyzhanelle",
+		restUrlOnlineIp
+	);
 }
 function resetAll() {
 	setOnlineStatus(false);
