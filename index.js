@@ -76,11 +76,7 @@ function setPlayers({ maxplayers, players }) {
 // -----------------------------------------------------------
 
 function setAll() {
-	fetchData(
-		setPlayers,
-		"/v2/server/status?players=true&token=ilyzhanelle",
-		"51.210.214.79:3118"
-	);
+	fetchData(setPlayers, "/v2/server/status?players=true&token=ilyzhanelle");
 }
 function resetAll() {
 	setOnlineStatus(false);
