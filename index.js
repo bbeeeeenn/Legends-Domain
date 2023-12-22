@@ -2,7 +2,7 @@ const restUrlIp = "http://127.0.0.1:3118";
 const restUrlOnlineIp = "51.210.214.79:3118";
 
 const activeStatus = document.querySelector(".activeStatus");
-function fetchData(call, endPoint, url = restUrlIp) {
+function fetchData(call, endPoint, url = restUrlOnlineIp) {
 	const options = { method: "GET", headers: { accept: "application/json" } };
 	fetch(`${url}${endPoint}`, options)
 		.then((response) => {
