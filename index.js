@@ -1,8 +1,8 @@
-const restUrl = "http://127.0.0.1:3118";
-const restUrlOnline = "http://192.168.1.8:3118";
+const restUrlIp = "http://127.0.0.1:3118";
+const restUrlOnlineIp = process.env.REST_URL;
 
 const activeStatus = document.querySelector(".activeStatus");
-function fetchData(call, endPoint, url = restUrlOnline) {
+function fetchData(call, endPoint, url = restUrlIp) {
 	const options = { method: "GET", headers: { accept: "application/json" } };
 	fetch(`${url}${endPoint}`, options)
 		.then((response) => {
