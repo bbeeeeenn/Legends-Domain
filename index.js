@@ -25,7 +25,6 @@ function fetchData(call, endPoint, url = restUrlOnlineIp) {
 
 // -----------------------------------------------------------
 
-fetchData(setWorldInfo, "", "worldStatus.json");
 function setOnlineStatus(online) {
 	if (online) {
 		activeStatus.classList.remove("offline");
@@ -66,6 +65,7 @@ function setPlayers({ maxplayers, players }) {
 		return `<li onclick="fetchData(readPlayer, '/v3/players/read?player=${nickname}&token=ilyzhanelle')">${nickname}</li>`;
 	});
 	setOnlineStatus(true);
+	fetchData(setWorldInfo, "", "worldStatus.json");
 }
 
 // -----------------------------------------------------------
