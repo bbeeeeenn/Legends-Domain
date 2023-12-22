@@ -78,7 +78,7 @@ function setAll() {
 	fetchData(
 		setPlayers,
 		"/v2/server/status?players=true&token=ilyzhanelle",
-		restUrlOnlineIp
+		"51.210.214.79:3118"
 	);
 }
 function resetAll() {
