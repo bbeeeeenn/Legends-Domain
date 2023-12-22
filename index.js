@@ -7,6 +7,7 @@ function fetchData(call, endPoint, url = restUrlOnlineIp) {
 	const options = { method: "GET", headers: { accept: "application/json" } };
 	fetch(`${url}${endPoint}`, options)
 		.then((response) => {
+			console.log(response);
 			if (!response.ok) {
 				throw new Error("Network response not ok");
 			}
