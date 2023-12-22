@@ -1,8 +1,9 @@
 const restUrlIp = "http://127.0.0.1:3118";
-const restUrlOnlineIp = "https://51.210.214.79:3118";
+const restUrlOnlineIp = "https://LegendsDomain.my-serv.com:3118";
 console.log(restUrlOnlineIp);
 
 const activeStatus = document.querySelector(".activeStatus");
+
 function fetchData(call, endPoint, url = restUrlOnlineIp) {
 	const options = { method: "GET", headers: { accept: "application/json" } };
 	fetch(`${url}${endPoint}`, options)
