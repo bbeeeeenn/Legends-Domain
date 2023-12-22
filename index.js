@@ -1,5 +1,5 @@
 const restUrlIp = "http://127.0.0.1:3118";
-const restUrlOnlineIp = REST_URL;
+const restUrlOnlineIp = "51.210.214.79:3118";
 
 const activeStatus = document.querySelector(".activeStatus");
 function fetchData(call, endPoint, url = restUrlIp) {
